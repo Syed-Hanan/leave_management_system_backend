@@ -45,7 +45,7 @@ public class LeaveRequestController {
         return leaveRequestService.rejectLeave(leaveId, managerId, remarks);
     }
 
-    // ✅ Manager view all employee leave requests
+    
     @GetMapping("/manager/{managerId}")
     public List<LeaveRequest> getManagerEmployeeLeaves(@PathVariable String managerId) {
         return leaveRequestService.getLeavesByManager(managerId);

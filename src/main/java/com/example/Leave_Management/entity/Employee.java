@@ -29,16 +29,16 @@ public class Employee {
     @Column(name = "EMAIL")
     private String email;
 
-    // Self-referencing many-to-one relationship (Employee -> Manager)
+    
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "MANAGER_ID")
-    @JsonBackReference // prevents infinite recursion
+    @JsonBackReference 
     private Employee manager;
 
-    // Default constructor
+    
     public Employee() {}
 
-    // All-args constructor
+    
     public Employee(String empId, String firstName, String lastName, String job,
                     String mobile, String email, Employee manager) {
         this.empId = empId;
@@ -50,7 +50,7 @@ public class Employee {
         this.manager = manager;
     }
 
-    // Getters & Setters
+    
     public String getEmpId() { return empId; }
     public void setEmpId(String empId) { this.empId = empId; }
 
@@ -72,7 +72,7 @@ public class Employee {
     public Employee getManager() { return manager; }
     public void setManager(Employee manager) { this.manager = manager; }
 
-    // 👇 Add managerId in JSON without breaking relationship
+    
     @JsonProperty("managerId")
     public String getManagerId() {
         return manager != null ? manager.getEmpId() : null;

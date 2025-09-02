@@ -19,12 +19,12 @@ public class LeaveRequest {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // Many-to-one relationship with Employee (for applicant)
+    
     @ManyToOne
     @JoinColumn(name = "empId", nullable = false)
     private Employee employee;
 
-    // Many-to-one relationship with Employee (for manager)
+    
     @ManyToOne
     @JoinColumn(name = "managerId", nullable = false)
     private Employee manager;
@@ -37,7 +37,7 @@ public class LeaveRequest {
     private String leaveStatus;
     private String remarks;
 
-    // Getters & Setters
+   
     public Long getId() {
         return id;
     }

@@ -22,14 +22,14 @@ public class LeaveRequestServiceImpl implements LeaveRequestService {
 
     @Override
     public LeaveRequest applyLeave(LeaveRequest request) {
-        // ✅ Fetch managed entities from DB
+        
         Employee emp = employeeRepository.findById(request.getEmployee().getEmpId())
                 .orElseThrow(() -> new RuntimeException("Employee not found: " + request.getEmployee().getEmpId()));
 
         Employee mgr = employeeRepository.findById(request.getManager().getEmpId())
                 .orElseThrow(() -> new RuntimeException("Manager not found: " + request.getManager().getEmpId()));
 
-        // ✅ Set them back into request
+        
         request.setEmployee(emp);
         request.setManager(mgr);
 
@@ -38,7 +38,7 @@ public class LeaveRequestServiceImpl implements LeaveRequestService {
         request.setDateApplied(LocalDate.now());
         request.setLeaveStatus("APPLIED");
 
-        return leaveRequestRepository.save(request); // ✅ Works now
+        return leaveRequestRepository.save(request);
     }
 
     @Override

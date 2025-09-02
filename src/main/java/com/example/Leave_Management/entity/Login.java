@@ -17,9 +17,9 @@ public class Login {
     private String role;
 
     @Column(length = 10)
-    private String empId; // 👈 add this
+    private String empId; 
 
-    // Getters & Setters
+    
     public String getUsername() { return username; }
     public void setUsername(String username) { this.username = username; }
 

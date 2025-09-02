@@ -4,5 +4,5 @@ import com.example.Leave_Management.entity.Login;
 
 public interface LoginService {
     void addUser(Login user);
-    Login userValidation(Login user); // validate username/password
+    Login userValidation(Login user); 
 }

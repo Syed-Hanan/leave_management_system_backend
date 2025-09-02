@@ -15,7 +15,7 @@ public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
 
-    // Add new employee
+    
     @PostMapping("/add")
     public Employee addEmployee(@RequestBody Employee employee) {
         return employeeService.addEmployee(employee);
@@ -27,9 +27,15 @@ public class EmployeeController {
         return employeeService.getAllEmployees();
     }
 
-    // Get employee by ID (including manager info)
+    
     @GetMapping("/{empId}")
     public Employee getEmployeeById(@PathVariable String empId) {
         return employeeService.getEmployeeById(empId);
+    }
+
+    
+    @GetMapping("/manager/{managerEmpId}")
+    public List<Employee> getEmployeesByManager(@PathVariable String managerEmpId) {
+        return employeeService.getEmployeesByManager(managerEmpId);
     }
 }

@@ -28,14 +28,14 @@ public class LoginController {
     @PostMapping("/validate")
     public ResponseEntity<?> loginValidate(@RequestBody Login user) {
         try {
-            // Validate login
+           
             Login u = loginService.userValidation(user);
 
-            // Build response JSON with empId for frontend
+            
             Map<String, Object> response = new HashMap<>();
             response.put("username", u.getUsername());
             response.put("role", u.getRole());
-            response.put("empId", u.getEmpId());   // ✅ employee ID
+            response.put("empId", u.getEmpId());   
             return new ResponseEntity<>(response, HttpStatus.OK);
 
         } catch (RuntimeException e) {

@@ -8,7 +8,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/holidays")
-@CrossOrigin(origins = "http://localhost:3000") // allow frontend React
+@CrossOrigin(origins = "http://localhost:3000") 
 public class PublicHolidayController {
 
     private final PublicHolidayService holidayService;

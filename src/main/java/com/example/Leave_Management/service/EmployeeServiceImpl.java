@@ -29,6 +29,11 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
+    public List<Employee> getEmployeesByManager(String managerEmpId) {
+        return employeeRepository.findByManager_EmpId(managerEmpId);
+    }
+
+    @Override
     public Employee getEmployeeById(String empId) {
         return employeeRepository.findById(empId).orElse(null);
     }
